@@ -1,0 +1,191 @@
+
+-- Table: Chitiethoadon
+Insert into Chitiethoadon(Mahoadon,MaSach,Soluong,ThanhTien)
+values (N'M01',N'S01',1,150000);
+Insert into Chitiethoadon(Mahoadon,MaSach,Soluong,ThanhTien)
+values (N'M02',N'S02',2,500000);
+Insert into Chitiethoadon(Mahoadon,MaSach,Soluong,ThanhTien)
+values (N'M03',N'S03',3,750000);
+Insert into Chitiethoadon(Mahoadon,MaSach,Soluong,ThanhTien)
+values (N'M04',N'S04',4,200000);
+Insert into Chitiethoadon(Mahoadon,MaSach,Soluong,ThanhTien)
+values (N'M05',N'S05',5,150000);
+
+CREATE TABLE Chitiethoadon (
+    Mahoadon nvarchar  NOT NULL,
+    MaSach nvarchar  NOT NULL,
+    Soluong INT  NOT NULL,
+    ThanhTien money  NOT NULL,
+    HoaDon_Mahoadon nvarchar  NOT NULL,
+    CONSTRAINT Chitiethoadon_pk PRIMARY KEY (Mahoadon)
+)
+;
+
+
+
+
+
+-- Table: HoaDon
+Insert into HoaDon (Mahoadon,MaKH,NgayTao)
+values (N'M01',N'K01','9/20/2014');
+Insert into HoaDon (Mahoadon,MaKH,NgayTao)
+values (N'M02',N'K02','9/20/2014');
+Insert into HoaDon (Mahoadon,MaKH,NgayTao)
+values (N'M03',N'K03','9/20/2014');
+Insert into HoaDon (Mahoadon,MaKH,NgayTao)
+values (N'M04',N'K04','9/20/2014');
+Insert into HoaDon (Mahoadon,MaKH,NgayTao)
+values (N'M05',N'K05','9/20/2014');
+CREATE TABLE HoaDon (
+    Mahoadon nvarchar  NOT NULL,
+    MaKH nvarchar  NOT NULL,
+    NgayTao nvarchar  NOT NULL,
+    HoaDon_Mahoadon nvarchar  NOT NULL,
+    KhachHang_MaKH nvarchar  NOT NULL,
+    Sach_MaSach nvarchar  NOT NULL,
+    CONSTRAINT HoaDon_pk PRIMARY KEY (Mahoadon)
+)
+;
+
+
+
+
+
+-- Table: KhachHang
+insert into KhachHang(MaKH,TenKH,Diachi,SDT)
+values (N'K01',N'Thúy Hạnh',N'Hà Nội',N'0988988889');
+insert into KhachHang(MaKH,TenKH,Diachi,SDT)
+values (N'K02',N'Đức Phúc',N'Ninh Bình',N'0988988888');
+insert into KhachHang(MaKH,TenKH,Diachi,SDT)
+values (N'K03',N'Thanh Bình',N'Đà Lạt',N'0988988899');
+insert into KhachHang(MaKH,TenKH,Diachi,SDT)
+values (N'K04',N'Tường Minh',N'Hà Nội',N'0988988999');
+insert into KhachHang(MaKH,TenKH,Diachi,SDT)
+values (N'K05',N'Mỹ Lệ',N'Sài Gòn',N'0988988989');
+
+CREATE TABLE KhachHang (
+    MaKH nvarchar  NOT NULL,
+    SDT nvarchar  NOT NULL,
+    CONSTRAINT KhachHang_pk PRIMARY KEY (MaKH)
+)
+;
+
+
+
+
+
+-- Table: PhanLoaiSach
+Insert into PhanLoaiSach(MaTheloai,TenTheloai)
+values (N'TL01',N'Khoa học thường thức');
+Insert into PhanLoaiSach(MaTheloai,TenTheloai)
+values (N'TL02',N'Kinh doanh');
+Insert into PhanLoaiSach(MaTheloai,TenTheloai)
+values (N'TL03',N'Ẩm thực');
+Insert into PhanLoaiSach(MaTheloai,TenTheloai)
+values (N'TL04',N'Thể thao');
+Insert into PhanLoaiSach(MaTheloai,TenTheloai)
+values (N'TL05',N'Khoa học tự nhiên');
+CREATE TABLE PhanLoaiSach (
+    MaTheloai nvarchar  NOT NULL,
+    TenTheloai nvarchar  NOT NULL,
+    CONSTRAINT PhanLoaiSach_pk PRIMARY KEY (MaTheloai)
+)
+;
+
+
+
+
+
+-- Table: Sach
+insert into Sach(MaSach,MaTheloai,TieuDe,NgayXB,GiaSach,BinhLuan)
+values (N'S01',N'TL01',N'NGÀY MỚI NĂNG ĐỘNG','2/3/2008',150000,N'Hay và bổ ích');
+insert into Sach(MaSach,MaTheloai,TieuDe,NgayXB,GiaSach,BinhLuan)
+values (N'S02',N'TL05',N'THIÊN NHIÊN KÌ THÚ','4/5/2011',250000,N'Rất thú vị');
+insert into Sach(MaSach,MaTheloai,TieuDe,NgayXB,GiaSach,BinhLuan)
+values (N'S03',N'TL03',N'ẨM THỰC BỐN MÙA','8/5/2012',350000,null);
+insert into Sach(MaSach,MaTheloai,TieuDe,NgayXB,GiaSach,BinhLuan)
+values (N'S04',N'TL02',N'BÍ QUYẾT KINH DOANH','7/9/2013',50000,N'Chìa khóa thành công');
+insert into Sach(MaSach,MaTheloai,TieuDe,NgayXB,GiaSach,BinhLuan)
+values (N'S05',N'TL04',N'TỰ HỌC YOGA','9/9/2014',30000,N'Dễ thực hành');
+insert into Sach(MaSach,MaTheloai,TieuDe,NgayXB,GiaSach,BinhLuan)
+values (N'S06',N'TL02',N'kinh te report','9/9/2014',30000,null);
+CREATE TABLE Sach (
+    MaSach nvarchar  NOT NULL,
+    MaTheloai nvarchar  NOT NULL,
+    TieuDe nvarchar  NOT NULL,
+    NgayXB datetime  NOT NULL,
+    GiaSach money  NOT NULL,
+    BinhLuan nvarchar  NOT NULL,
+    CONSTRAINT Sach_pk PRIMARY KEY (MaSach)
+)
+;
+
+
+
+
+
+-- Table: TacGia
+insert into TacGia (MaTG,HoDem,TenTG) 
+values (N'T01',N'Nguyễn Văn',N'Hoàng');
+insert into TacGia (MaTG,HoDem,TenTG) 
+values (N'T02',N'Nguyễn Phương',N'Lan');
+insert into TacGia (MaTG,HoDem,TenTG) 
+values (N'T03',N'Nguyễn Văn',N'Võ');
+insert into TacGia (MaTG,HoDem,TenTG) 
+values (N'T04',N'Nguyễn Văn',N'Thông');
+insert into TacGia (MaTG,HoDem,TenTG) 
+values (N'T05',N'Nguyễn Văn',N'Đức');
+CREATE TABLE TacGia (
+    TenTG nvarchar  NOT NULL,
+    HoDem nvarchar  NOT NULL,
+    CONSTRAINT TacGia_pk PRIMARY KEY (TenTG)
+)
+;
+
+
+
+
+
+
+
+
+
+-- foreign keys
+-- Reference:  Chitiethoadon_HoaDon (table: Chitiethoadon)
+
+
+ALTER TABLE Chitiethoadon ADD CONSTRAINT Chitiethoadon_HoaDon 
+    FOREIGN KEY (HoaDon_Mahoadon)
+    REFERENCES HoaDon (Mahoadon)
+;
+
+-- Reference:  HoaDon_KhachHang (table: HoaDon)
+
+
+ALTER TABLE HoaDon ADD CONSTRAINT HoaDon_KhachHang 
+    FOREIGN KEY (KhachHang_MaKH)
+    REFERENCES KhachHang (MaKH)
+;
+
+-- Reference:  HoaDon_Sach (table: HoaDon)
+
+
+ALTER TABLE HoaDon ADD CONSTRAINT HoaDon_Sach 
+    FOREIGN KEY (Sach_MaSach)
+    REFERENCES Sach (MaSach)
+;
+
+-- Reference:  KhachHang_HoaDon (table: HoaDon)
+
+
+ALTER TABLE HoaDon ADD CONSTRAINT KhachHang_HoaDon 
+    FOREIGN KEY ()
+    REFERENCES HoaDon ()
+;
+
+
+
+
+
+-- End of file.
+
